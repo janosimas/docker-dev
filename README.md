@@ -19,11 +19,6 @@ Other:
 
 # Sample usage
 
-Create an `.env` file based on `sample_env`:
-```
-cp sample_env .env
-```
-
 Build image:
 ```
 docker build -t "janosimas:dev" --build-arg USER_ID=`id -u $USER` --build-arg GROUP_ID=`id -g $USER` --build-arg USER_NAME=`id -un $USER` --build-arg GROUP_NAME=`id -gn $USER`.
