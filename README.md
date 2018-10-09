@@ -8,6 +8,7 @@ Tools:
   - Valgrind
   - GDB
   - CppCheck
+  - CMake/CMake-gui
 
 Code Editor:
   - VS Code
@@ -30,7 +31,12 @@ docker build -t "janosimas:dev" --build-arg USER_ID=`id -u $USER` --build-arg GR
 
 Run image sharing `DISPLAY`, `NETWORK` and `~/devel` folder:
 ```
-docker run -itd --network host --name terrama2_dev -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -v ~/devel:~/devel janosimas:dev
+docker run --restart unless-stopped -itd --network host --name docker_dev -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=${DISPLAY} -v ~/devel:~/devel janosimas:dev
+```
+
+Run a visual tool
+```
+xhost + && docker exec -it docker_dev code
 ```
 
 # References
